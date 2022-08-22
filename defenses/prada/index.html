@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <title>Analysis of the Copycat Method against PRADA defense</title>
+        <style>
+        body {
+            text-align: center;
+            font-size: 1em;
+        }
+        label {
+            display: block;
+            margin-bottom: 20px;
+        }
+        div {
+            width: 200px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            padding: 0;
+            margin:0;
+        }
+        ul > li {
+            display: block;
+            width: 200px;
+            height: 40px;
+            transition: .2s;
+            position: relative;
+            text-align: center;
+        }
+        ul li a:after {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0%;
+            content: '.';
+            color: transparent;
+            background: black;
+            height: 1px;
+            transition: all .2s;
+        }
+        ul li a:hover:after {
+            /* chave do efeito, passando de 0% para 100% e, então,
+            mostrando o background de 1px de altura */
+            width: 100%;
+        }
+        a {
+        display: block;
+            text-decoration: none;
+            color: black;
+        }
+        </style>
+    </head>
+    <body>
+    <h3>Analysis of the Copycat Method against PRADA defense</h3>
+    <div>
+        <label>Models:</label>
+        <nav>
+        <ul>
+            <li><a href="mnist-small/index.html">MNIST - Small Arch</a></li>
+            <li><a href="mnist-large/index.html">MNIST - VGG16 Arch</a></li>
+            <li><a href="gtsrb-small/index.html">GTSRB - Small Arch</a></li>
+            <li><a href="gtsrb-large/index.html">GTSRB - VGG16 Arch</a></li>
+            <li><a href="goc9/index.html">GOC9 Model - VGG16 Arch</a></li>
+        </ul>
+        </nav>
+    </div>
+    
+    </body>
+</html>
