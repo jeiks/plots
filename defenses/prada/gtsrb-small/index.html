@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <title>MNIST - Small Architecture</title>
+        <title>GTSRB - Small Architecture</title>
         <meta charset='UTF-8'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
@@ -14,6 +14,7 @@
             next_btn.off("click");
             $($('iframe')[active]).toggle();
             $($('iframe')[next]).toggle();
+            $('iframe:visible').attr('src', $('iframe:visible').attr('src'));
             active = next;
             if (active == $('iframe').length-1) //last one
                 next_btn.removeClass('enabled');
@@ -34,7 +35,6 @@
         }
         $(document).ready(function(){
             var next_btn = $('.buttons #next');
-            $($('iframe')[0]).toggle();
             next_btn.addClass('enabled');
             next_btn.click(function(){change_buttons(true);});
             $("[type='number']").keypress(function (evt) {
@@ -43,7 +43,10 @@
             $(":input").bind('keyup mouseup', function () {
                 change_scale();
             });
-            $("iframe").css("transform", "scale(0.9)");
+            $('iframe:first').ready(function(){
+                $('iframe:first').css("transform", "scale(0.9)");
+                $('iframe:first').toggle();
+            });
         });
         </script>
     </head>
@@ -115,11 +118,10 @@
     <body>
         <div class='buttons'><button id="prev">Previous</button><input type='number' value='0.90' step='0.05' min='0.50' max='1.50'><button id="next">Next</button></div>
         <div>
-        <iframe src="GTSRB-Ordered_Datasets.html"  title="Ordered Datasets" scrolling="no"></iframe>
-        <iframe src="GTSRB-Shuffled_Datasets.html" title="Shuffled Datasets" scrolling="no"></iframe>
-        <iframe src="GTSRB-BTS_Dataset.html"      title="USPS 120 chunks" scrolling="no"></iframe>
-        <iframe src="GTSRB-ImageNet-100k.html"       title="ImageNet 100k" scrolling="no"></iframe>
-        <iframe src="GTSRB-Problem_Domain_SIG.html"                  title="PD Dataset" scrolling="no"></iframe>
-        </div>
+             <iframe src="sorted_datasets.html"  title="Sorted Datasets" scrolling="no"></iframe>
+             <iframe src="shuffled_datasets.html"  title="Shuffled Datasets" scrolling="no"></iframe>
+             <iframe src="chunks.html"  title="120 Chunks of BTS" scrolling="no"></iframe>
+             <iframe src="copycat-imagenet.html"  title="Copycat ImageNet 100k" scrolling="no"></iframe>
+             <iframe src="copycat-pd.html"  title="Copycat PD" scrolling="no"></iframe></div>
     </body>
 </html>
